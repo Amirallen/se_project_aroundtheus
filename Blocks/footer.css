@@ -1,0 +1,25 @@
+.footer {
+  margin-top: 67px;
+  margin-bottom: 60px;
+}
+
+.footer__copyright {
+  color: rgba(84, 84, 84, 0.7);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  font-family: "Inter", Arial, sans-serif;
+  margin: 0;
+}
+@media screen and (max-width: 320px) {
+  .footer {
+    width: calc(100% - 38px);
+    margin-top: 48px;
+    margin-bottom: 36px;
+  }
+  .footer__copyright {
+    font-size: 14px;
+    font-family: "Inter", Arial;
+    font-weight: 400;
+  }
+}

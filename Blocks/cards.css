@@ -1,0 +1,21 @@
+.cards {
+  margin-top: 50px;
+}
+
+.cards__list {
+  margin: 0;
+  padding-left: 0;
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fit, 282px);
+  gap: 20px 17px;
+}
+@media screen and (max-width: 320px) {
+  .cards__list {
+    display: flex;
+    flex-direction: column;
+  }
+  .cards {
+    margin-top: 36px;
+  }
+}
