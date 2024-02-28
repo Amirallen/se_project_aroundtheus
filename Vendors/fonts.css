@@ -3,14 +3,14 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url("./Fonts/InterDisplay-Regular.woff2") format("woff2");
+  src: url("./Fonts/Inter-Regular.woff2") format("woff2");
 }
 @font-face {
   font-family: "Inter";
   font-style: normal;
   font-weight: 500;
   font-display: swap;
-  src: url("./Fonts/InterDisplay-Medium.woff2") format("woff2");
+  src: url("./Fonts/Inter-Medium.woff2") format("woff2");
 }
 @font-face {
   font-family: "Inter";

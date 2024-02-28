@@ -5,10 +5,23 @@
 }
 .header__image {
   margin-bottom: 40px;
+  width: 173px;
+  height: 33px;
 }
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 710px) {
   .header__image {
     margin-left: 27px;
     margin-bottom: 32px;
+    width: 145px;
+    height: 28px;
+  }
+}
+
+@media screen and (max-width: 465px) {
+  .header__image {
+    margin-left: 27px;
+    margin-bottom: 32px;
+    width: 126px;
+    height: 24px;
   }
 }

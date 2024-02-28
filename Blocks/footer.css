@@ -1,17 +1,20 @@
 .footer {
   margin-top: 67px;
   margin-bottom: 60px;
+  /*min-height: 100vh;*/
 }
 
 .footer__copyright {
-  color: rgba(84, 84, 84, 0.7);
+  color: rgba(84, 84, 84);
   font-weight: 400;
   font-size: 18px;
   line-height: 22px;
   font-family: "Inter", Arial, sans-serif;
   margin: 0;
+  /*position: sticky;
+    top: 100%;*/
 }
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 465px) {
   .footer {
     width: calc(100% - 38px);
     margin-top: 48px;
@@ -19,7 +22,6 @@
   }
   .footer__copyright {
     font-size: 14px;
-    font-family: "Inter", Arial;
-    font-weight: 400;
+    line-height: 17px;
   }
 }

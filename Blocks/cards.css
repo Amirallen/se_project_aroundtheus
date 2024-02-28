@@ -10,7 +10,7 @@
   grid-template-columns: repeat(auto-fit, 282px);
   gap: 20px 17px;
 }
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 465px) {
   .cards__list {
     display: flex;
     flex-direction: column;

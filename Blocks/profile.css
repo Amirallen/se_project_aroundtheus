@@ -4,7 +4,7 @@
   padding-top: 40px;
 }
 .profile__title {
-  font-family: "Inter", Arial;
+  font-family: "Inter", Arial, sans-serif;
   font-weight: 500;
   font-size: 42px;
   line-height: 48px;
@@ -15,7 +15,7 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  max-width: 500px;
+  max-width: 373px;
 }
 .profile__info {
   display: grid;
@@ -28,13 +28,12 @@
   width: 120px;
   height: 120px;
   border-radius: 50%;
-
   background-position: center;
   margin-right: 30px;
 }
 
 .profile__edit-button {
-  background: transparent url(../Images/Edit\ Button.svg) center no-repeat;
+  background: transparent url(../images/EditButton.svg) center no-repeat;
   width: 24px;
   height: 24px;
   cursor: pointer;
@@ -55,8 +54,8 @@
   font-weight: 400;
   grid-area: description;
   margin: 16px 0 0;
-  font-family: "Inter", Arial;
-  max-width: 220px;
+  font-family: "Inter", Arial, sans-serif;
+  max-width: 282px;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
@@ -76,7 +75,42 @@
   opacity: 60%;
   transition: 1s;
 }
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 710px) {
+  .profile__edit-button {
+    width: 20px;
+    height: 20px;
+  }
+  .profile__title {
+    font-size: 28px;
+    margin-right: 10px;
+    line-height: 27px;
+  }
+  .profile__image {
+    margin: 0 0 30px;
+  }
+
+  .profile {
+    flex-direction: column;
+  }
+  .profile__info {
+    display: grid;
+    justify-content: center;
+    width: 100%;
+  }
+  .profile__description {
+    width: 100%;
+    text-align: center;
+    margin: 14px 0 36px;
+    line-height: 17px;
+    font-size: 18px;
+  }
+  .profile__add-button {
+    margin: 0 19px 0;
+    width: calc(100% - 40px);
+  }
+}
+
+@media screen and (max-width: 465px) {
   .profile__edit-button {
     width: 18px;
     height: 18px;
@@ -84,6 +118,10 @@
   .profile__title {
     font-size: 22px;
     margin-right: 10px;
+    line-height: 27px;
+  }
+  .profile__image {
+    margin: 0 0 30px;
   }
 
   .profile {
@@ -98,10 +136,12 @@
   .profile__description {
     width: 100%;
     text-align: center;
-    margin-bottom: 36px;
+    margin: 14px 0 36px;
+    line-height: 17px;
+    font-size: 14px;
   }
   .profile__add-button {
     margin: 0 19px 0;
-    width: calc(100% - 38px);
+    width: calc(100% - 40px);
   }
 }
