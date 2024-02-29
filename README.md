@@ -11,7 +11,7 @@ Current Status: Ongoing development
 This project aims to create a website that adapts effectively to various screen sizes and devices using HTML and CSS .
 
 video of the project : https://drive.google.com/file/d/1E7jUffv600b-TC96MtAs7pexROqRFoNY/view?usp=sharing
-
+Link to the project : https://amirallen.github.io/se_project_aroundtheus/
 will add secreenshots and more later on .
 
 
