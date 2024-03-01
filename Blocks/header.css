@@ -8,7 +8,7 @@
   width: 173px;
   height: 33px;
 }
-@media screen and (max-width: 710px) {
+@media screen and (max-width: 735px) {
   .header__image {
     margin-bottom: 32px;
     width: 145px;

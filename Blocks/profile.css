@@ -15,7 +15,7 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  max-width: 373px;
+  max-width: 375px;
 }
 .profile__info {
   display: grid;
@@ -75,7 +75,7 @@
   opacity: 60%;
   transition: 1s;
 }
-@media screen and (max-width: 710px) {
+@media screen and (max-width: 735px) {
   .profile__edit-button {
     width: 20px;
     height: 20px;
