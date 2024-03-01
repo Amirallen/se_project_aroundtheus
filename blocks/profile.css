@@ -123,7 +123,6 @@
     flex-wrap: wrap;
   }
   .profile__description {
-    margin: 14px 0 36px;
     font-size: 14px;
     max-width: 282px;
   }
