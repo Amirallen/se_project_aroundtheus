@@ -48,6 +48,7 @@
 
 .modal_opened {
   display: flex;
+  
 }
 
 .modal__form {
