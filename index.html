@@ -186,9 +186,23 @@
             type="submit"
             class="modal__submit-button"
           >
-            Save
+            Create
           </button>
         </form>
+      </div>
+    </div>
+
+    <!--Image Preview-->
+
+    <div class="modal" id="preview-image-modal">
+      <div class="modal__container modal__preview-container">
+        <button
+          type="button"
+          class="modal__close-button modal__close-button-preview"
+          id="preview-close-button"
+        ></button>
+        <img src="" alt="" class="modal__image-preview" id="card-preview" />
+        <p class="modal__caption" id="modal-preview-caption"></p>
       </div>
     </div>
 
@@ -197,6 +211,11 @@
         <img src="" alt="" class="card__image" />
         <div class="card__description">
           <h2 class="card__title"></h2>
+          <button
+            id="card-delete-button"
+            class="card__delete-button"
+            type="button"
+          ></button>
           <button class="card__like-button" type="button"></button>
         </div>
       </li>

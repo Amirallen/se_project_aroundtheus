@@ -6,9 +6,11 @@
   right: 0;
   bottom: 0;
   z-index: 99;
-  display: none;
   padding: 19px;
-  /*display: flex;*/
+  display: flex;
+  visibility: hidden;
+  pointer-events: none;
+  transition: visibility 0s, opacity 0.3s linear;
 }
 .modal__container {
   max-width: 430px;
@@ -47,8 +49,10 @@
 }
 
 .modal_opened {
-  display: flex;
-  
+  visibility: visible;
+  opacity: 1;
+  pointer-events: all;
+  transition: visibility 0s, opacity 0.3 linear;
 }
 
 .modal__form {
@@ -100,6 +104,31 @@
   opacity: 80%;
   transition: 0.5s;
 }
+/*preview*/
+
+.modal__preview-container {
+  padding: 0;
+  border-radius: 0;
+  border: none;
+  max-width: 75vw;
+  max-height: 75vh;
+  background-color: transparent;
+}
+.modal__close-button-preview {
+  display: flex;
+  position: absolute;
+}
+
+.modal__caption {
+  background-color: transparent;
+  color: #fff;
+  margin-top: 10px;
+  font-style: "Inter", Arial, sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+}
+
 @media screen and (max-width: 465px) {
   .modal__container {
     max-width: 238px;
