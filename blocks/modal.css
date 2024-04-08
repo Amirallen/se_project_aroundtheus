@@ -9,8 +9,8 @@
   padding: 19px;
   display: flex;
   visibility: hidden;
-  pointer-events: none;
-  transition: visibility 0s, opacity 0.3s linear;
+  opacity: 0;
+  transition: visibility 0s, 0.3s, opacity 0.3s linear;
 }
 .modal__container {
   max-width: 430px;
@@ -51,7 +51,6 @@
 .modal_opened {
   visibility: visible;
   opacity: 1;
-  pointer-events: all;
   transition: visibility 0s, opacity 0.3 linear;
 }
 
@@ -108,17 +107,20 @@
 
 .modal__preview-container {
   padding: 0;
-  border-radius: 0;
-  border: none;
+  margin: 90px auto;
   max-width: 75vw;
   max-height: 75vh;
   background-color: transparent;
-}
-.modal__close-button-preview {
-  display: flex;
-  position: absolute;
+  position: relative;
 }
 
+.modal__image-preview {
+  max-height: 100%;
+  max-width: 100%;
+}
+.modal__close-button-preview {
+  position: absolute;
+}
 .modal__caption {
   background-color: transparent;
   color: #fff;
@@ -155,5 +157,11 @@
     width: 26px;
     height: 26px;
     right: 0;
+  }
+  .modal__close-button-preview {
+    width: 30px;
+    height: 30px;
+    right: -14px;
+    top: -9px;
   }
 }
