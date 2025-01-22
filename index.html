@@ -33,7 +33,11 @@
               Explorer
             </p>
           </div>
-          <button class="profile__add-button" type="button"></button>
+          <button
+            class="profile__add-button"
+            type="button"
+            id="content-add-button"
+          ></button>
         </section>
         <section class="cards page__section">
           <ul class="cards__list" id="cards-list"></ul>
@@ -49,10 +53,10 @@
         <button
           type="button"
           class="modal__close-button"
-          id="modal-close-button"
+          id="profile-modal-close-button"
         ></button>
         <h2 class="modal__heading">Edit Profile</h2>
-        <form class="modal__form" id="modal-form">
+        <form class="modal__form" id="profile-modal-form">
           <fieldset class="modal__fieldset">
             <label for="modal-title" class="modal__label">
               <input
@@ -83,10 +87,62 @@
         </form>
       </div>
     </div>
+    <!-- -------------------------- Content Add Modal -------------------------- -->
+    <div class="modal" id="content-add-modal">
+      <div class="modal__container">
+        <button
+          type="button"
+          class="modal__close-button"
+          id="content-modal-close-button"
+        ></button>
+        <h2 class="modal__heading">New Place</h2>
+        <form class="modal__form" id="content-modal-form">
+          <fieldset class="modal__fieldset">
+            <label for="modal-title" class="modal__label">
+              <input
+                class="modal__input"
+                type="text"
+                name="title"
+                placeholder="Title"
+                required
+                id="content-add-form-title"
+            /></label>
+            <label for="modal-description" class="modal__label">
+              <input
+                class="modal__input"
+                type="text"
+                name="link"
+                placeholder="Image link"
+                required
+                id="content-add-form-link"
+            /></label>
+          </fieldset>
+          <button
+            type="submit"
+            class="modal__submit-button"
+            id="modal-submit-btn"
+          >
+            Create
+          </button>
+        </form>
+      </div>
+    </div>
+    <!-- ------------------------- Cards Preview Modal ------------------------- -->
+    <div class="modal" id="preview-image-modal">
+      <div class="modal__container modal__preview-container">
+        <img id="card-preview" class="modal__image-preview" src="#" alt="#" />
+        <button
+          id="preview-close-button"
+          class="modal__close-button modal__close-button-preview"
+        ></button>
+        <h2 id="modal-preview-caption" class="modal__caption"></h2>
+      </div>
+    </div>
     <!-- --------------------------------- *** --------------------------------- -->
     <!-- ------------------------------ Template ------------------------------- -->
     <template id="card-template">
       <li class="card">
+        <button class="card__delete-button"></button>
         <img src="" alt="" class="card__image" id="card-image" />
         <div class="card__description">
           <h2 class="card__title" id="card-title"></h2>
