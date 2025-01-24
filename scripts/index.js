@@ -60,7 +60,6 @@ const contentTitleInput = contentModalForm.querySelector(
 const contentLinkInput = contentModalForm.querySelector(
   "#content-add-form-link"
 );
-
 /* ------------------------------ Image Modal Preview ----------------------------- */
 const previewImageModal = document.querySelector("#preview-image-modal");
 const previewModalCloseButton = previewImageModal.querySelector(
@@ -109,10 +108,6 @@ function getCardElement(cardData) {
     cardImagePreview.alt = cardData.name;
   });
 
-  previewModalCloseButton.addEventListener("click", () => {
-    closeModal(previewImageModal);
-  });
-
   cardTitleElement.textContent = cardData.name;
   cardImageElement.src = cardData.link;
   cardImageElement.alt = cardData.name;
@@ -139,6 +134,10 @@ contentModalCloseBtn.addEventListener("click", () => {
   closeModal(contentAddModal);
 });
 
+previewModalCloseButton.addEventListener("click", () => {
+  closeModal(previewImageModal);
+});
+
 profileModalForm.addEventListener("submit", handleProfileFormSubmit);
 
 contentModalForm.addEventListener("submit", handleContentFormSubmit);
@@ -160,6 +159,7 @@ function handleContentFormSubmit(e) {
   const link = contentLinkInput.value;
   renderCard({ name, link }, cardListElement);
   closeModal(contentAddModal);
+  e.target.reset();
 }
 
 initialCards.forEach((cardData) => {
