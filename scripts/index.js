@@ -75,10 +75,14 @@ const modalPreviewCaption = previewImageModal.querySelector(
 
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
+  modal.removeEventListener("click", closeOverlay);
+  document.removeEventListener("keydown", handleEsc);
 }
 
 function openModal(modal) {
   modal.classList.add("modal_opened");
+  modal.addEventListener("click", closeOverlay);
+  document.addEventListener("keydown", handleEsc);
 }
 
 function renderCard(cardData, list) {
@@ -145,6 +149,22 @@ contentModalForm.addEventListener("submit", handleContentFormSubmit);
 /* -------------------------------------------------------------------------- */
 /*                               Event Handlers                               */
 /* -------------------------------------------------------------------------- */
+
+function handleEsc(e) {
+  if (e.key === "Escape") {
+    const openModal = document.querySelector(".modal_opened");
+    if (openModal) {
+      closeModal(openModal);
+    }
+  }
+}
+
+function closeOverlay(evt) {
+  const openModal = document.querySelector(".modal_opened");
+  if (evt.target.classList.contains("modal")) {
+    closeModal(openModal);
+  }
+}
 
 function handleProfileFormSubmit(evt) {
   evt.preventDefault();

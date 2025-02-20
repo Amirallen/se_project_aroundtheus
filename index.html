@@ -56,17 +56,24 @@
           id="profile-modal-close-button"
         ></button>
         <h2 class="modal__heading">Edit Profile</h2>
-        <form class="modal__form" id="profile-modal-form">
+        <form novalidate class="modal__form" id="profile-modal-form">
           <fieldset class="modal__fieldset">
             <label for="modal-title" class="modal__label">
               <input
+                maxlength="40"
+                minlength="2"
                 class="modal__input"
                 type="text"
                 name="title"
                 placeholder="Name"
                 required
                 id="modal-title"
-            /></label>
+              />
+              <span
+                class="modal__input_type_error"
+                id="modal-title-error"
+              ></span>
+            </label>
             <label for="modal-description" class="modal__label">
               <input
                 class="modal__input"
@@ -75,7 +82,14 @@
                 placeholder="Description"
                 required
                 id="modal-description"
-            /></label>
+                minlength="2"
+                maxlength="200"
+              />
+              <span
+                class="modal__input_type_error"
+                id="modal-description-error"
+              ></span>
+            </label>
           </fieldset>
           <button
             type="submit"
@@ -96,7 +110,7 @@
           id="content-modal-close-button"
         ></button>
         <h2 class="modal__heading">New Place</h2>
-        <form class="modal__form" id="content-modal-form">
+        <form novalidate class="modal__form" id="content-modal-form">
           <fieldset class="modal__fieldset">
             <label class="modal__label">
               <input
@@ -106,20 +120,32 @@
                 placeholder="Title"
                 required
                 id="content-add-form-title"
-            /></label>
+                minlength="1"
+                maxlength="30"
+              />
+              <span
+                class="modal__input_type_error"
+                id="content-add-form-title-error"
+              ></span>
+            </label>
             <label class="modal__label">
               <input
                 class="modal__input"
-                type="text"
+                type="url"
                 name="link"
                 placeholder="Image link"
                 required
                 id="content-add-form-link"
-            /></label>
+              /><span
+                class="modal__input_type_error"
+                id="content-add-form-link-error"
+              ></span>
+            </label>
           </fieldset>
           <button
+            disabled
             type="submit"
-            class="modal__submit-button"
+            class="modal__submit-button modal__submit-button_disabled"
             id="add-modal-submit-btn"
           >
             Create
@@ -152,5 +178,6 @@
     </template>
     <!-- --------------------------------- *** --------------------------------- -->
     <script src="./scripts/index.js"></script>
+    <script src="./scripts/validation.js"></script>
   </body>
 </html>
