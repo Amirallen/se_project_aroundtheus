@@ -36,7 +36,7 @@ const profileEditModal = document.querySelector("#profile-edit-modal");
 const profileModalCloseBtn = profileEditModal.querySelector(
   "#profile-modal-close-button"
 );
-
+const closeButtons = document.querySelectorAll(".modal__close-button");
 const modalNameInput = profileEditModal.querySelector("#modal-title");
 const profileModalForm = profileEditModal.querySelector("#profile-modal-form");
 const profileEditBtn = document.querySelector("#profile-edit-button");
@@ -130,16 +130,9 @@ contentAddButton.addEventListener("click", () => {
   openModal(contentAddModal);
 });
 
-profileModalCloseBtn.addEventListener("click", () => {
-  closeModal(profileEditModal);
-});
-
-contentModalCloseBtn.addEventListener("click", () => {
-  closeModal(contentAddModal);
-});
-
-previewModalCloseButton.addEventListener("click", () => {
-  closeModal(previewImageModal);
+closeButtons.forEach((button) => {
+  const modal = button.closest(".modal");
+  button.addEventListener("click", () => closeModal(modal));
 });
 
 profileModalForm.addEventListener("submit", handleProfileFormSubmit);
@@ -160,9 +153,8 @@ function handleEsc(e) {
 }
 
 function closeOverlay(evt) {
-  const openModal = document.querySelector(".modal_opened");
   if (evt.target.classList.contains("modal")) {
-    closeModal(openModal);
+    closeModal(evt.target);
   }
 }
 
@@ -183,6 +175,5 @@ function handleContentFormSubmit(e) {
 }
 
 initialCards.forEach((cardData) => {
-  const cardElement = getCardElement(cardData);
-  cardListElement.prepend(cardElement);
+  renderCard(cardData, cardListElement);
 });
