@@ -77,9 +77,9 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
-  position: absolute;
-  top: -42px;
-  right: -42px;
+  position: relative;
+  top: -78px;
+  left: 398px;
   cursor: pointer;
   padding: 0;
 }
