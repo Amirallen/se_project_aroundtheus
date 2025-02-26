@@ -120,6 +120,10 @@
 }
 .modal__close-button-preview {
   position: absolute;
+  right: -45px;
+  top: -45px;
+  bottom: auto;
+  left: auto;
 }
 .modal__caption {
   background-color: transparent;
@@ -179,13 +183,14 @@
   .modal__close-button {
     width: 26px;
     height: 26px;
-    right: 0;
+    left: 225px;
   }
   .modal__close-button-preview {
     width: 30px;
     height: 30px;
     right: -14px;
     top: -9px;
+    left: 265px;
   }
 }
 
@@ -195,8 +200,5 @@
   }
   .modal__submit-button {
     font-size: 14px;
-  }
-  .modal__close-button {
-    left: 245px;
   }
 }
