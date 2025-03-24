@@ -1,6 +1,8 @@
 /* -------------------------------------------------------------------------- */
 /*                               *   Dream On   *                               */
 /* -------------------------------------------------------------------------- */
+import FormValidator from "./FormValidator.js";
+//import Card from "../components/Card.js";
 
 const initialCards = [
   {
@@ -28,6 +30,14 @@ const initialCards = [
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg",
   },
 ];
+
+/*const cardData = {
+  name: "Lago di Braies",
+  link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg",
+};
+
+const card = new Card(cardData, "#card-template");
+card.getView();*/
 /* -------------------------------------------------------------------------- */
 /*                                  Elements                                  */
 /* -------------------------------------------------------------------------- */
@@ -85,12 +95,12 @@ function openModal(modal) {
   document.addEventListener("keydown", handleEsc);
 }
 
-function renderCard(cardData, list) {
-  const cardElement = getCardElement(cardData);
+function renderCard(data, list) {
+  const cardElement = getCardElement(data);
   list.prepend(cardElement);
 }
 
-function getCardElement(cardData) {
+function getCardElement(data) {
   const cardElement = cardTemplate.cloneNode(true);
   const cardImageElement = cardElement.querySelector("#card-image");
   const cardTitleElement = cardElement.querySelector("#card-title");
@@ -107,14 +117,14 @@ function getCardElement(cardData) {
 
   cardImageElement.addEventListener("click", () => {
     openModal(previewImageModal);
-    modalPreviewCaption.textContent = cardData.name;
-    cardImagePreview.src = cardData.link;
-    cardImagePreview.alt = cardData.name;
+    modalPreviewCaption.textContent = data.name;
+    cardImagePreview.src = data.link;
+    cardImagePreview.alt = data.name;
   });
 
-  cardTitleElement.textContent = cardData.name;
-  cardImageElement.src = cardData.link;
-  cardImageElement.alt = cardData.name;
+  cardTitleElement.textContent = data.name;
+  cardImageElement.src = data.link;
+  cardImageElement.alt = data.name;
   return cardElement;
 }
 /* -------------------------------------------------------------------------- */
@@ -174,6 +184,24 @@ function handleContentFormSubmit(e) {
   e.target.reset();
 }
 
-initialCards.forEach((cardData) => {
-  renderCard(cardData, cardListElement);
+initialCards.forEach((data) => {
+  renderCard(data, cardListElement);
 });
+
+/* ------------------------------- validation ------------------------------- */
+const validationSettings = {
+  inputSelector: ".modal__input",
+  submitButtonSelector: ".modal__submit-button",
+  inactiveButtonClass: "modal__submit-button_disabled",
+  inputErrorClass: "modal__input_type_error",
+  errorClass: "modal__error_visible",
+};
+
+const editFormValidator = new FormValidator(
+  validationSettings,
+  profileModalForm
+);
+const addFormValidator = new FormValidator(
+  validationSettings,
+  contentModalForm
+);
