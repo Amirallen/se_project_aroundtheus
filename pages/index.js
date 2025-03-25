@@ -1,8 +1,8 @@
 /* -------------------------------------------------------------------------- */
-/*                               *   Dream On   *                               */
+/*                                  DREAM ON                                  */
 /* -------------------------------------------------------------------------- */
-import FormValidator from "./FormValidator.js";
-//import Card from "../components/Card.js";
+import FormValidator from "../components/FormValidator.js";
+import Card from "../components/Card.js";
 
 const initialCards = [
   {
@@ -31,13 +31,6 @@ const initialCards = [
   },
 ];
 
-/*const cardData = {
-  name: "Lago di Braies",
-  link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg",
-};
-
-const card = new Card(cardData, "#card-template");
-card.getView();*/
 /* -------------------------------------------------------------------------- */
 /*                                  Elements                                  */
 /* -------------------------------------------------------------------------- */
@@ -87,20 +80,29 @@ function closeModal(modal) {
   modal.classList.remove("modal_opened");
   modal.removeEventListener("click", closeOverlay);
   document.removeEventListener("keydown", handleEsc);
+  if (modal === contentAddModal) {
+    contentModalForm.reset();
+  }
 }
 
 function openModal(modal) {
+  if (modal === profileEditModal) {
+    editFormValidator.resetValidation();
+  } else if (modal === contentAddModal) {
+    addFormValidator.resetValidation();
+  }
   modal.classList.add("modal_opened");
   modal.addEventListener("click", closeOverlay);
   document.addEventListener("keydown", handleEsc);
 }
 
-function renderCard(data, list) {
-  const cardElement = getCardElement(data);
-  list.prepend(cardElement);
+function renderCard(cardData) {
+  const card = new Card(cardData, "#card-template");
+  const cardElement = card.getView();
+  cardListElement.prepend(cardElement);
 }
 
-function getCardElement(data) {
+/*function getCardElement(data) {
   const cardElement = cardTemplate.cloneNode(true);
   const cardImageElement = cardElement.querySelector("#card-image");
   const cardTitleElement = cardElement.querySelector("#card-title");
@@ -126,7 +128,7 @@ function getCardElement(data) {
   cardImageElement.src = data.link;
   cardImageElement.alt = data.name;
   return cardElement;
-}
+}*/
 /* -------------------------------------------------------------------------- */
 /*                               Event Listeners                              */
 /* -------------------------------------------------------------------------- */
@@ -173,19 +175,21 @@ function handleProfileFormSubmit(evt) {
   profileName.textContent = modalNameInput.value;
   profileDescription.textContent = modalDescriptionInput.value;
   closeModal(profileEditModal);
+  editFormValidator.resetValidation();
 }
 
 function handleContentFormSubmit(e) {
   e.preventDefault();
   const name = contentTitleInput.value;
   const link = contentLinkInput.value;
-  renderCard({ name, link }, cardListElement);
+  renderCard({ name, link });
   closeModal(contentAddModal);
   e.target.reset();
+  addFormValidator.resetValidation();
 }
 
 initialCards.forEach((data) => {
-  renderCard(data, cardListElement);
+  renderCard(data);
 });
 
 /* ------------------------------- validation ------------------------------- */
@@ -205,3 +209,5 @@ const addFormValidator = new FormValidator(
   validationSettings,
   contentModalForm
 );
+editFormValidator.enableValidation();
+addFormValidator.enableValidation();
