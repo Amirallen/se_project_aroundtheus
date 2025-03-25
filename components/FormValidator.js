@@ -28,7 +28,7 @@ export default class FormValidator {
   _hasValidInputs(inputList) {
     return inputList.every((inputEl) => inputEl.validity.valid === true);
   }
-  _disableButton() {
+  disableButton() {
     this._submitButton.classList.add(this._inactiveButtonClass);
     this._submitButton.disabled = true;
   }
@@ -40,7 +40,7 @@ export default class FormValidator {
     if (this._hasValidInputs(this._inputList)) {
       this._enableButton();
     } else {
-      this._disableButton();
+      this.disableButton();
     }
   }
 

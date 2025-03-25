@@ -1,47 +1,9 @@
-/* ---------------------------------- copy ---------------------------------- */
-const profileEditModal = document.querySelector("#profile-edit-modal");
-const contentAddModal = document.querySelector("#content-add-modal");
-function openModal(modal) {
-  if (modal === profileEditModal) {
-    editFormValidator.resetValidation();
-  } else if (modal === contentAddModal) {
-    addFormValidator.resetValidation();
-  }
-  modal.classList.add("modal_opened");
-  modal.addEventListener("click", closeOverlay);
-  document.addEventListener("keydown", handleEsc);
-}
-
-function closeModal(modal) {
-  modal.classList.remove("modal_opened");
-  modal.removeEventListener("click", closeOverlay);
-  document.removeEventListener("keydown", handleEsc);
-  if (modal === contentAddModal) {
-    contentModalForm.reset();
-  }
-}
-
-function handleEsc(e) {
-  if (e.key === "Escape") {
-    const openModal = document.querySelector(".modal_opened");
-    if (openModal) {
-      closeModal(openModal);
-    }
-  }
-}
-
-function closeOverlay(evt) {
-  if (evt.target.classList.contains("modal")) {
-    closeModal(evt.target);
-  }
-}
-/* ---------------------------------- copy ---------------------------------- */
-
 export default class Card {
-  constructor(cardData, cardSelector) {
+  constructor(cardData, cardSelector, handleImageClick) {
     this._name = cardData.name;
     this._link = cardData.link;
     this._cardSelector = cardSelector;
+    this._handleImageClick = handleImageClick;
   }
 
   _getTemplate() {
@@ -64,7 +26,7 @@ export default class Card {
 
     this._cardImageElement = this._element.querySelector("#card-image");
     this._cardImageElement.addEventListener("click", () =>
-      this._handleImagePreview()
+      this._handleImageClick(this._name, this._link)
     );
 
     this._cardTitleElement = this._element.querySelector("#card-title");
@@ -76,18 +38,6 @@ export default class Card {
 
   _handleDeleteButton() {
     this._element.remove();
-  }
-
-  _handleImagePreview() {
-    const previewImageModal = document.querySelector("#preview-image-modal");
-    const cardImagePreview = previewImageModal.querySelector("#card-preview");
-    const modalPreviewCaption = previewImageModal.querySelector(
-      "#modal-preview-caption"
-    );
-    modalPreviewCaption.textContent = this._name;
-    cardImagePreview.src = this._link;
-    cardImagePreview.alt = this._name;
-    openModal(previewImageModal);
   }
 
   getView() {
