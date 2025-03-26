@@ -182,7 +182,7 @@ function handleContentFormSubmit(e) {
   renderCard({ name, link });
   closeModal(contentAddModal);
   e.target.reset();
-  addFormValidator._disableButton();
+  addFormValidator.disableButton();
 }
 
 initialCards.forEach((data) => {
